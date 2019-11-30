@@ -1,17 +1,17 @@
 import os
+
 import pytest
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException
 
-
 ROOT = os.path.dirname(os.path.dirname(__file__))
+
 
 @pytest.fixture
 def browser():
     """creates an instance of Chrome driver."""
     # initialize browser
-    driver = webdriver.Chrome(os.path.join(ROOT, 'utils/chromedriver')) # TODO: this can be removed if latest driver is already installed.
+    driver = webdriver.Chrome(os.path.join(ROOT, 'utils/chromedriver'))
     driver.implicitly_wait(10)
     driver.get('https://demo.applitools.com/hackathon.html')
     yield driver
@@ -30,6 +30,7 @@ class TestUIElement:
 
 class TestDataDriven:
     """For all Data-Driven tests."""
+
     def test_login_without_providing_credentials(self, browser):
         browser.find_element_by_id('log-in').click()
         assert 'Both Username and Password must be present' in \
@@ -37,7 +38,7 @@ class TestDataDriven:
 
     def test_login_only_provide_username(self, browser):
         username = browser.find_element_by_id('username')
-        username.clear() # to clear any pre-populated text in input field
+        username.clear()  # to clear any pre-populated text in input field
         username.send_keys('ada')
         browser.find_element_by_id('log-in').click()
         assert 'Password must be present' in \
@@ -54,11 +55,11 @@ class TestDataDriven:
     def test_login_with_valid_credentials(self, browser):
         browser.find_element_by_id('username').send_keys('ada')
         browser.find_element_by_id('password').send_keys('lovelace')
-        browser.find_element_by_id('log-in').click()        
+        browser.find_element_by_id('log-in').click()
         # if element exists then we know we have successfully logged in
         try:
             browser.find_element_by_class_name('top-menu-controls')
-            assert True # Surely, there's a better way:-)
+            assert True  # Surely, there's a better way:-)
         except NoSuchElementException:
             # no element found.. this means we can't or didn't login, we can safely assert FALSE
             assert False
@@ -74,6 +75,3 @@ class TestCanvasChart:
 
 class DynamicContentTest:
     pass
-
-
-
