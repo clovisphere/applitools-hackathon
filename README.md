@@ -11,7 +11,7 @@ When developing with Python, it's a good idea to setup a [virtual environment](h
 1. Clone the repository, change directory, setup virtual environment.
 
 ```console
-$ git@github.com:clovisphere/applitools-hackathon.git && cd applitools-hackathon
+$ git clone git@github.com:clovisphere/applitools-hackathon.git && cd applitools-hackathon
 $ pip install virtualenvwrapper
 $ mkvirtualenv -p $(which python3) hackathon
 ```
