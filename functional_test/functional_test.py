@@ -54,18 +54,26 @@ class TestDataDriven:
     def test_login_with_valid_credentials(self, browser):
         browser.find_element_by_id('username').send_keys('ada')
         browser.find_element_by_id('password').send_keys('lovelace')
-        browser.find_element_by_id('log-in').click()
-        
+        browser.find_element_by_id('log-in').click()        
         # if element exists then we know we have successfully logged in
         try:
             browser.find_element_by_class_name('top-menu-controls')
-            assert True  # we could probably do better:-)
+            assert True # Surely, there's a better way:-)
         except NoSuchElementException:
-            # no element found.. this then means we can't or didn't login
+            # no element found.. this means we can't or didn't login, we can safely assert FALSE
             assert False
 
 
+class TestTableSort:
+    pass
 
+
+class TestCanvasChart:
+    pass
+
+
+class DynamicContentTest:
+    pass
 
 
 
