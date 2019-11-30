@@ -28,7 +28,6 @@ class TestUIElement:
 
 
 class TestDataDriven:
-    """For all Data-Driven tests."""
 
     def test_login_without_providing_credentials(self, browser):
         browser.find_element_by_id('log-in').click()
