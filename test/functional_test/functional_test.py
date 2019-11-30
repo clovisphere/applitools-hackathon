@@ -3,7 +3,7 @@ import pytest
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 
-ROOT = os.path.dirname(os.path.dirname(__file__))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 
 @pytest.fixture
 def browser():
