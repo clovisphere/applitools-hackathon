@@ -9,7 +9,7 @@ ROOT = os.path.dirname(os.path.dirname(__file__))
 def browser():
     """creates an instance of Chrome driver."""
     # initialize browser
-    driver = webdriver.Chrome(os.path.join(ROOT, 'utils/chromedriver'))
+    driver = webdriver.Chrome(os.path.join(ROOT, 'resources/chromedriver'))
     driver.implicitly_wait(10)
     driver.get('https://demo.applitools.com/hackathon.html')
     yield driver
