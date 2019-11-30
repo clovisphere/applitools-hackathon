@@ -20,7 +20,7 @@ $ mkvirtualenv -p $(which python3) hackathon
 2. Install required packages
 
 ```console
-(hackathon)$ pip install -r requirements.txt
+(hackathon)$ pip install -r resources/requirements.txt
 ```
 
 
