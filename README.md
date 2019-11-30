@@ -8,7 +8,7 @@ The [Python Programming language](https://en.wikipedia.org/wiki/Python_(programm
 
 When developing with Python, it's a good idea to setup a [virtual environment](https://realpython.com/python-virtual-environments-a-primer/); I, highly, request that you use: [pipenv](https://pipenv.readthedocs.io/en/latest/), [virtualenv](https://virtualenv.pypa.io/en/latest/) or [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/).
 
-1. Clone the repository, change directory, install required packages.
+1. Clone the repository, change directory, setup virtual environment.
 
 ```console
 $ git@github.com:clovisphere/applitools-hackathon.git && cd applitools-hackathon
