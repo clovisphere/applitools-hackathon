@@ -5,6 +5,7 @@ from selenium.common.exceptions import NoSuchElementException
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 
+
 @pytest.fixture
 def browser():
     """creates an instance of Chrome driver."""
@@ -64,12 +65,36 @@ class TestDataDriven:
 
 
 class TestTableSort:
+
+    def is_logged_in(self, browser):
+        browser.find_element_by_id('username').send_keys('ada')
+        browser.find_element_by_id('password').send_keys('lovelace')
+        browser.find_element_by_id('log-in').click()
+        return True if browser.find_element_by_class_name('top-menu-controls') else False
+
+    def _get_table_data(self, browser):
+        """Saves content of table in a list of lists - where each row is a list."""
+        data = []
+        table = browser.find_element_by_css_selector('table')
+        for row in table.find_elements_by_css_selector('tbody'):
+            content = []
+            for col in row.find_elements_by_css_selector('td'):
+                content.append(col.text)
+            data.append(content)
+        return data
+
+    def test_view_recent_transactions(self, browser):
+        if self.is_logged_in(browser):
+            original = self._get_table_data(browser)
+            browser.find_element_by_id('amount').click()
+            assert self._get_table_data(browser).sort() == original.sort()
+        else:
+            assert False
+
+
+class TestCanvasChart(TestTableSort):
     pass
 
 
-class TestCanvasChart:
-    pass
-
-
-class DynamicContentTest:
+class DynamicContentTest(TestTableSort):
     pass
