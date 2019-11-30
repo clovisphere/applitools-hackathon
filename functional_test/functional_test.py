@@ -23,7 +23,7 @@ class TestUIElement:
         """Using functional (automated) testing for this can be tedious and 
         cumbersome as it requires one to validate or write assertions 
         for every single element on a page. Since we are mostly validating that 
-        everything on the page (log-in) appears as expected or intented, it's a task better suited 
+        everything on the page (log-in) appears as expected or intended, it's a task better suited
         for a visual UI testing tool i.e applitools. 
         """
 
