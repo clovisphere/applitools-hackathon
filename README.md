@@ -23,8 +23,6 @@ $ mkvirtualenv -p $(which python3) hackathon
 (hackathon)$ pip install -r resources/requirements.txt
 ```
 
-![](resources/hackathon.gif)
-
 ## Usage
 
 ```console
